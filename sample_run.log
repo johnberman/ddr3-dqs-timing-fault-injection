@@ -1,0 +1,95 @@
+VCD info: dumpfile tb_top.vcd opened for output.
+=== Cyclone V HMC fault-injection testbench ===
+CK period 2500.0 ps (400.0 MHz); tDS/tDH 75.0/75.0 ps; nominal window 150.0 ps
+
+--- Phase 1: baseline, fault injection DISABLED ---
+[SCOREBOARD 21995] WRITE bank=0 col=16 data=a5a55a5a skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 41450] READ OK bank=0 col=16 data=a5a55a5a
+[SCOREBOARD 54495] WRITE bank=0 col=17 data=12345678 skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 73950] READ OK bank=0 col=17 data=12345678
+
+--- Phase 2: DQS skew sweep on lane 2 (window = 150.0 ps) ---
+  [sweep] lane2 DQS skew = 0 ps
+[SCOREBOARD 86995] WRITE bank=0 col=32 data=deadbeef skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 106450] READ OK bank=0 col=32 data=deadbeef
+  [sweep] lane2 DQS skew = 25 ps
+[SCOREBOARD 119495] WRITE bank=0 col=57 data=deadbeef skew_ps=[0.0,0.0,25.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 138950] READ OK bank=0 col=57 data=deadbeef
+  [sweep] lane2 DQS skew = 50 ps
+[DRAM 148920] lane 2 HOLD VIOLATION: DQ changed within 75.0 ps of strobe (skew walked strobe past end of data valid window)
+[SCOREBOARD 151995] WRITE bank=0 col=82 data=deadbeef skew_ps=[0.0,0.0,50.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 171450] READ MISMATCH bank=0 col=82 expected=deadbeef observed=dexxbeef
+    fault context at write time (t=151995): skew_ps=[0.0,0.0,50.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+  [sweep] lane2 DQS skew = 75 ps
+[DRAM 181445] lane 2 HOLD VIOLATION: DQ changed within 75.0 ps of strobe (skew walked strobe past end of data valid window)
+[SCOREBOARD 184495] WRITE bank=0 col=107 data=deadbeef skew_ps=[0.0,0.0,75.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 203950] READ MISMATCH bank=0 col=107 expected=deadbeef observed=dexxbeef
+    fault context at write time (t=184495): skew_ps=[0.0,0.0,75.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+  [sweep] lane2 DQS skew = 100 ps
+[DRAM 213970] lane 2 HOLD VIOLATION: DQ changed within 75.0 ps of strobe (skew walked strobe past end of data valid window)
+[SCOREBOARD 216995] WRITE bank=0 col=132 data=deadbeef skew_ps=[0.0,0.0,100.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 236450] READ MISMATCH bank=0 col=132 expected=deadbeef observed=dexxbeef
+    fault context at write time (t=216995): skew_ps=[0.0,0.0,100.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+  [sweep] lane2 DQS skew = 125 ps
+[DRAM 246495] lane 2 SETUP VIOLATION: DQ stable only 5.0 ps before strobe (need 75.0 ps)
+[SCOREBOARD 249495] WRITE bank=0 col=157 data=deadbeef skew_ps=[0.0,0.0,125.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 268950] READ MISMATCH bank=0 col=157 expected=deadbeef observed=dexxbeef
+    fault context at write time (t=249495): skew_ps=[0.0,0.0,125.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+  [sweep] lane2 DQS skew = 150 ps
+[DRAM 279020] lane 2 SETUP VIOLATION: DQ stable only 30.0 ps before strobe (need 75.0 ps)
+[SCOREBOARD 281995] WRITE bank=0 col=182 data=deadbeef skew_ps=[0.0,0.0,150.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 301450] READ MISMATCH bank=0 col=182 expected=deadbeef observed=dexxbeef
+    fault context at write time (t=281995): skew_ps=[0.0,0.0,150.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+  [sweep] lane2 DQS skew = 175 ps
+[DRAM 311545] lane 2 SETUP VIOLATION: DQ stable only 55.0 ps before strobe (need 75.0 ps)
+[SCOREBOARD 314495] WRITE bank=0 col=207 data=deadbeef skew_ps=[0.0,0.0,175.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 333950] READ MISMATCH bank=0 col=207 expected=deadbeef observed=dexxbeef
+    fault context at write time (t=314495): skew_ps=[0.0,0.0,175.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+  [sweep] lane2 DQS skew = 200 ps
+[SCOREBOARD 346995] WRITE bank=0 col=232 data=deadbeef skew_ps=[0.0,0.0,200.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 366450] READ MISMATCH bank=0 col=232 expected=deadbeef observed=de52beef
+    fault context at write time (t=346995): skew_ps=[0.0,0.0,200.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+
+--- Phase 3: eye-narrowing sweep on lane 1, skew held at 0 ---
+  [sweep] lane1 eye narrowing = 0 ps (effective window 150.0 ps)
+[SCOREBOARD 379495] WRITE bank=0 col=64 data=c0fffeed skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,0.0,0.0,0.0]
+[SCOREBOARD 398950] READ OK bank=0 col=64 data=c0fffeed
+  [sweep] lane1 eye narrowing = 20 ps (effective window 130.0 ps)
+[SCOREBOARD 411995] WRITE bank=0 col=84 data=c0fffeed skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,20.0,0.0,0.0]
+[SCOREBOARD 431450] READ OK bank=0 col=84 data=c0fffeed
+  [sweep] lane1 eye narrowing = 40 ps (effective window 110.0 ps)
+[SCOREBOARD 444495] WRITE bank=0 col=104 data=c0fffeed skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,40.0,0.0,0.0]
+[SCOREBOARD 463950] READ OK bank=0 col=104 data=c0fffeed
+  [sweep] lane1 eye narrowing = 60 ps (effective window 90.0 ps)
+[DRAM 473870] lane 1 SETUP VIOLATION: DQ stable only 60.0 ps before strobe (need 75.0 ps)
+[SCOREBOARD 476995] WRITE bank=0 col=124 data=c0fffeed skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,60.0,0.0,0.0]
+[SCOREBOARD 496450] READ MISMATCH bank=0 col=124 expected=c0fffeed observed=c0ffxxed
+    fault context at write time (t=476995): skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,60.0,0.0,0.0]
+  [sweep] lane1 eye narrowing = 80 ps (effective window 70.0 ps)
+[DRAM 506370] lane 1 SETUP VIOLATION: DQ stable only 40.0 ps before strobe (need 75.0 ps)
+[SCOREBOARD 509495] WRITE bank=0 col=144 data=c0fffeed skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,80.0,0.0,0.0]
+[SCOREBOARD 528950] READ MISMATCH bank=0 col=144 expected=c0fffeed observed=c0ffxxed
+    fault context at write time (t=509495): skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,80.0,0.0,0.0]
+  [sweep] lane1 eye narrowing = 100 ps (effective window 50.0 ps)
+[DRAM 538870] lane 1 SETUP VIOLATION: DQ stable only 20.0 ps before strobe (need 75.0 ps)
+[SCOREBOARD 541995] WRITE bank=0 col=164 data=c0fffeed skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,100.0,0.0,0.0]
+[SCOREBOARD 561450] READ MISMATCH bank=0 col=164 expected=c0fffeed observed=c0ffxxed
+    fault context at write time (t=541995): skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,100.0,0.0,0.0]
+  [sweep] lane1 eye narrowing = 120 ps (effective window 30.0 ps)
+[DRAM 571370] lane 1 SETUP VIOLATION: DQ stable only 0.0 ps before strobe (need 75.0 ps)
+[SCOREBOARD 574495] WRITE bank=0 col=184 data=c0fffeed skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,120.0,0.0,0.0]
+[SCOREBOARD 593950] READ MISMATCH bank=0 col=184 expected=c0fffeed observed=c0ffxxed
+    fault context at write time (t=574495): skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,120.0,0.0,0.0]
+  [sweep] lane1 eye narrowing = 140 ps (effective window 10.0 ps)
+[DRAM 603870] lane 1 SETUP VIOLATION: DQ stable only -20.0 ps before strobe (need 75.0 ps)
+[SCOREBOARD 606995] WRITE bank=0 col=204 data=c0fffeed skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,140.0,0.0,0.0]
+[DRAM 625200] lane 1 SETUP VIOLATION: DQ stable only 60.0 ps before strobe (need 75.0 ps)
+[SCOREBOARD 626450] READ MISMATCH bank=0 col=204 expected=c0fffeed observed=c0ffxxed
+    fault context at write time (t=606995): skew_ps=[0.0,0.0,0.0,0.0] eye_narrow_ps=[0.0,140.0,0.0,0.0]
+
+==================================================
+SCOREBOARD SUMMARY: writes=19 reads=19 mismatches=12
+==================================================
+=== Testbench complete ===
+tb/tb_top.sv:236: $finish called at 636450 (1ps)
+[hmc_timing_assertions] command activity: 57 active cycles, 198 idle cycles
